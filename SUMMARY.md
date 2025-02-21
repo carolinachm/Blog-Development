@@ -17,3 +17,4 @@
     * [📖 HU005 - Pesquisa de Posts](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu005-pesquisa-de-posts.md)
     * [📖 HU006 - Autenticação e Autorização](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu006-autenticacao-e-autorizacao.md)
     * [📖 HU007 - Upload de Imagens](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu007-upload-de-imagens.md)
+    * [📖 HU008 - Notificações por E-mail](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu008-notificacoes-por-e-mail.md)
