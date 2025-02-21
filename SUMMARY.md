@@ -18,3 +18,4 @@
     * [📖 HU006 - Autenticação e Autorização](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu006-autenticacao-e-autorizacao.md)
     * [📖 HU007 - Upload de Imagens](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu007-upload-de-imagens.md)
     * [📖 HU008 - Notificações por E-mail](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu008-notificacoes-por-e-mail.md)
+    * [📖 HU009 - Internacionalização (i18n)](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu009-internacionalizacao-i18n.md)
