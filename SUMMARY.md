@@ -15,3 +15,4 @@
     * [📖 HU003 - Gerenciamento de Usuários](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu003-gerenciamento-de-usuarios.md)
     * [📖 HU004 - Gerenciamento de Categorias](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu004-gerenciamento-de-categorias.md)
     * [📖 HU005 - Pesquisa de Posts](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu005-pesquisa-de-posts.md)
+    * [📖 HU006 - Autenticação e Autorização](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu006-autenticacao-e-autorizacao.md)
