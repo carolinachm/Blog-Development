@@ -9,3 +9,4 @@
     * [🏗️ Arquitetura do Sistema](readme/documentacao-do-projeto-codejourney-blog/arquitetura-do-sistema.md)
 * [⚙️ Gerenciamento de Conteúdo do Blog](gerenciamento-de-conteudo-do-blog/README.md)
   * [📚 Épico](gerenciamento-de-conteudo-do-blog/epico.md)
+  * [📖 Histórias de Usuário1](gerenciamento-de-conteudo-do-blog/historias-de-usuario1.md)
