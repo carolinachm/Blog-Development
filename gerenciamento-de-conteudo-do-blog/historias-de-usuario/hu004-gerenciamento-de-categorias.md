@@ -1,4 +1,4 @@
-# HU004 - Gerenciamento de Categorias
+# 📖 HU004 - Gerenciamento de Categorias
 
 **Como** um usuário do sistema,\
 **Eu quero** poder criar, editar, excluir e visualizar categorias,\

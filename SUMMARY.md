@@ -13,4 +13,5 @@
     * [📖 HU001 - Gerenciamento de Posts](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu001-gerenciamento-de-posts.md)
     * [📖 HU002 - Gerenciamento de Comentários](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu002-gerenciamento-de-comentarios.md)
     * [📖 HU003 - Gerenciamento de Usuários](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu003-gerenciamento-de-usuarios.md)
-    * [HU004 - Gerenciamento de Categorias](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu004-gerenciamento-de-categorias.md)
+    * [📖 HU004 - Gerenciamento de Categorias](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu004-gerenciamento-de-categorias.md)
+    * [📖 HU005 - Pesquisa de Posts](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu005-pesquisa-de-posts.md)
