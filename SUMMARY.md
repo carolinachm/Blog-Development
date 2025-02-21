@@ -19,3 +19,4 @@
     * [📖 HU007 - Upload de Imagens](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu007-upload-de-imagens.md)
     * [📖 HU008 - Notificações por E-mail](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu008-notificacoes-por-e-mail.md)
     * [📖 HU009 - Internacionalização (i18n)](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu009-internacionalizacao-i18n.md)
+    * [📖 HU010 - Testes de Performance](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu010-testes-de-performance.md)
