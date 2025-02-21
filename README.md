@@ -64,6 +64,8 @@ Siga os passos abaixo para configurar e executar o projeto localmente.
    ```bash
    git clone https://github.com/seu-usuario/codejourney-blog.git
    cd codejourney-blog
+   ```
+
    Configure o banco de dados:
 Configure o banco de dados:
 
@@ -74,10 +76,13 @@ Atualize as configurações no arquivo application.properties:
 spring.datasource.url=jdbc:postgresql://localhost:5432/nome_do_banco
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
+```
+
 
 3.Execute o projeto:
 ```bash
 ./mvnw spring-boot:run
+```
 
 4.Acesse a API:
 
@@ -87,6 +92,8 @@ O servidor estará disponível em http://localhost:8080.
 Para executar os testes unitários, use o seguinte comando:
 ```bash
 ./mvnw test
+```
+
 
 ## 🛠️ Melhorias Futuras
 Implementar testes de performance com k6.
@@ -105,12 +112,18 @@ Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
 2.Crie uma nova branch:
 ```bash
 git checkout -b feature/nova-feature
+```
+
 3. Commit suas alterações:
 ```bash
 git commit -m "Adiciona nova feature"
+```
+
 4. Faça push para a branch:
 ```bash
 git push origin feature/nova-feature
+```
+
 5. Abra um Pull Request.
 ## 📜 Licença
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
