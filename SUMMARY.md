@@ -7,3 +7,5 @@
     * [🎯 Objetivos](readme/documentacao-do-projeto-codejourney-blog/objetivos.md)
     * [📋 Requisitos](readme/documentacao-do-projeto-codejourney-blog/requisitos.md)
     * [🏗️ Arquitetura do Sistema](readme/documentacao-do-projeto-codejourney-blog/arquitetura-do-sistema.md)
+* [⚙️ Gerenciamento de Conteúdo do Blog](gerenciamento-de-conteudo-do-blog/README.md)
+  * [📚 Épico](gerenciamento-de-conteudo-do-blog/epico.md)
