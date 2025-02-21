@@ -12,3 +12,4 @@
   * [📖 Histórias de Usuário](gerenciamento-de-conteudo-do-blog/historias-de-usuario1.md)
     * [📖 HU001 - Gerenciamento de Posts](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu001-gerenciamento-de-posts.md)
     * [📖 HU002 - Gerenciamento de Comentários](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu002-gerenciamento-de-comentarios.md)
+    * [📖 HU003 - Gerenciamento de Usuários](gerenciamento-de-conteudo-do-blog/historias-de-usuario/hu003-gerenciamento-de-usuarios.md)
