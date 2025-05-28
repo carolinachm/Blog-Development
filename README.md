@@ -1,150 +1,218 @@
-# CodeJourney Blog 🚀
+# 📚 Blog API - Spring Boot + PostgreSQL
 
-Bem-vindo ao **CodeJourney Blog**! Este projeto é um blog pessoal desenvolvido para documentar meus estudos e experiências em **testes de software** e **desenvolvimento de software**. O sistema foi construído com **Java**, **Spring Boot** e **PostgreSQL**, e inclui funcionalidades básicas de CRUD para posts, comentários, usuários e categorias.
+### API RESTful de um Blog, desenvolvida com Spring Boot e PostgreSQL, que permite:
 
----
+#### ✍️ Cadastro de autor(a)
 
-## 🛠️ Tecnologias Utilizadas
+🗓️ Data de criação
 
-- **Backend**: Java, Spring Boot
-- **Banco de Dados**: PostgreSQL
-- **Testes**: JUnit
-- **Ferramentas Futuras**:
-  - k6 (testes de performance)
-  - SonarQube (análise de código)
-  - Grafana (monitoramento)
+🖼️ Upload de imagem
 
----
+🎥 Upload de vídeo
 
-## 🚀 Funcionalidades
+📝 Conteúdo textual
 
-O **CodeJourney Blog** inclui as seguintes funcionalidades:
+Imagens e vídeos são armazenados diretamente no banco como BLOB (BYTEA no PostgreSQL).
 
-### Posts
-- Criação, edição, exclusão e visualização de posts.
-- Cada post pode ter uma imagem associada.
-- Relacionamento com categorias e usuários.
+#### 🚀 Tecnologias
 
-### Comentários
-- Criação, edição, exclusão e visualização de comentários.
-- Relacionamento com posts e usuários.
+Java 17
 
-### Usuários
-- Criação, edição, exclusão e visualização de usuários.
-- Autenticação e autorização com Spring Security.
+Spring Boot
 
-### Categorias
-- Criação, edição, exclusão e visualização de categorias.
-- Organização de posts por temas.
+Spring Data JPA
 
-### Pesquisa
-- Pesquisa de posts por título, conteúdo ou categoria.
+PostgreSQL
 
-### Upload de Imagens
-- Upload de imagens para posts.
+Lombok
 
-### Autenticação e Autorização
-- Login e logout de usuários.
-- Controle de acesso baseado em roles (USER, ADMIN).
+Maven
 
----
+Swagger (OpenAPI)
 
-## 📦 Instalação e Configuração
+Spring Validation
 
-Siga os passos abaixo para configurar e executar o projeto localmente.
+#### 🏗️ Estrutura do Projeto
 
-### Pré-requisitos
-- Java 17 ou superior.
-- PostgreSQL instalado e configurado.
-- Maven instalado.
+``` bash
+src/
 
-### Passos para Executar o Projeto
+└── main/
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/codejourney-blog.git
-   cd codejourney-blog
-   ```
+├── java/
 
-   Configure o banco de dados:
-Configure o banco de dados:
+│   └── com/
 
-2. Crie um banco de dados no PostgreSQL.
+│       └── seuprojeto/
 
-Atualize as configurações no arquivo application.properties:
-```bash
-spring.datasource.url=jdbc:postgresql://localhost:5432/nome_do_banco
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
+│           └── blog/
+
+│               ├── controller/
+
+│               ├── dto/
+
+│               ├── model/
+
+│               ├── repository/
+
+│               ├── service/
+
+│               └── BlogApplication.java
+
+└── resources/
+
+├── application.properties
+
+└── static/
+```
+#### ⚙️ Configuração
+
+Configure o arquivo application.properties:
+
+properties
+
+``` bash
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/blog\_db
+
+spring.datasource.username=seu\_usuario
+
+spring.datasource.password=sua\_senha
+
+spring.jpa.hibernate.ddl-auto=update
+
+spring.jpa.show-sql=true
+
+spring.jpa.properties.hibernate.format\_sql=true
+
+spring.servlet.multipart.max-file-size=50MB
+
+spring.servlet.multipart.max-request-size=50MB
 ```
 
+#### ▶️ Como Rodar
 
-3.Execute o projeto:
+Pré-requisitos
+
+Java 17+
+
+Maven
+
+PostgreSQL rodando
+
+Passos
+
+Clone o projeto:
+
 ```bash
+
+git clone https://github.com/seuusuario/blog-api.git
+```
+
+#### Acesse o diretório:
+
+```bash
+
+cd blog-api
+```
+
+#### Crie o banco no PostgreSQL.
+
+Configure seu application.properties.
+
+Rode o projeto:
+
+```bash
+
 ./mvnw spring-boot:run
-```
+ ```
+#### Acesse o Swagger:
 
-4.Acesse a API:
-
-O servidor estará disponível em http://localhost:8080.
-
-## 🧪 Testes
-Para executar os testes unitários, use o seguinte comando:
 ```bash
-./mvnw test
+
+http://localhost:8080/swagger-ui/index.html
 ```
 
+#### 🛠️ Endpoints
 
-## 🛠️ Melhorias Futuras
-Implementar testes de performance com k6.
+Método	Endpoint	Descrição
 
-Integrar com SonarQube para análise de código.
+POST	/api/posts	Criar post
 
-Configurar monitoramento com Grafana e Prometheus.
+GET	/api/posts	Listar posts
 
-Adicionar internacionalização (i18n) para suporte a múltiplos idiomas.
+GET	/api/posts/{id}	Buscar post por ID
 
-## 🤝 Como Contribuir
-Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
+PUT	/api/posts/{id}	Atualizar post
 
-1.Faça um fork do projeto.
+DELETE	/api/posts/{id}	Deletar post
 
-2.Crie uma nova branch:
-```bash
-git checkout -b feature/nova-feature
-```
+#### Upload de arquivos:
 
-3. Commit suas alterações:
-```bash
-git commit -m "Adiciona nova feature"
-```
+Usar multipart/form-data nos endpoints de criação e atualização para enviar imagem e vídeo.
 
-4. Faça push para a branch:
-```bash
-git push origin feature/nova-feature
-```
+#### 🗄️ Modelo de Dados (Post)
 
-5. Abra um Pull Request.
-## 📜 Licença
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
-## 📞 Contato
-Se tiver dúvidas ou sugestões, sinta-se à vontade para entrar em contato:
+Campo	Tipo	Descrição
 
-Nome: [Seu Nome]
+id	Long	Identificador
 
-E-mail: [seu-email@exemplo.com]
+autor	String	Nome do autor
 
-GitHub: seu-usuario
+titulo	String	Título do post
 
-Feito com ❤️ por [Seu Nome] 🚀
+conteudo	String	Conteúdo do post
 
+dataCriacao	LocalDate	Data de criação
 
----
+imagem	byte[]	Arquivo da imagem
 
-### Como Usar
-1. Substitua os placeholders (ex: `seu-usuario`, `seu-email@exemplo.com`, `Seu Nome`) pelas suas informações.
-2. Adicione o arquivo `README.md` na raiz do seu repositório no GitHub.
-3. Atualize o conteúdo conforme necessário para refletir as mudanças no projeto.
+video	byte[]	Arquivo do vídeo
 
-Se precisar de mais ajustes ou informações adicionais, é só me avisar! 😊
+#### 🚀 Funcionalidades
+
+✅ Criar post com upload de imagem e vídeo
+
+✅ Atualizar post
+
+✅ Listar posts
+
+✅ Buscar post por ID
+
+✅ Excluir post
+
+✅ Documentação da API via Swagger
+
+# 🐍 Melhorias Futuras
+
+#### 🔒 Autenticação com JWT
+
+#### ☁️ Armazenamento de mídia em nuvem (S3, Azure Blob)
+
+#### 🔍 Filtros, paginação e ordenação
+
+#### 🧪 Testes unitários e integração
+
+#### 🚀 Deploy na nuvem (Render, Railway, Heroku)
+
+## 🤝 Contribuição
+
+Fork o projeto
+
+Crie uma branch (git checkout -b feature/minha-feature)
+
+Commit (git commit -m 'Minha feature')
+
+Push (git push origin feature/minha-feature)
+
+Abra um Pull Request
+
+#### 📜 Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais informações.
+
+#### 👨‍💻 Autor
+
+Desenvolvido por Carolina Mesquita com 💙
+
 
