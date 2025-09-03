@@ -1,12 +1,12 @@
-package br.com.blog.blog.repository;
+package br.com.codigocomcafe.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.blog.blog.model.PostModel;
+import br.com.codigocomcafe.model.PostModel;
 
 @Repository
-public interface PostRepository extends CrudRepository<PostModel, Long>{
+public interface PostRepository extends JpaRepository<PostModel, Long>{
      // Aqui você pode adicionar métodos personalizados se quiser, mas por enquanto
     // o CrudRepository já nos dá:
     // - save()

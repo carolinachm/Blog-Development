@@ -1,4 +1,4 @@
-package br.com.blog.blog.model;
+package br.com.codigocomcafe.model;
 
 import java.sql.Blob;
 import java.sql.Date;
@@ -7,12 +7,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "tb_post")
+@AllArgsConstructor
+@NoArgsConstructor
 public class PostModel {
 
     //Atributo
@@ -22,8 +28,11 @@ public class PostModel {
     private String titulo;
     private String  conteudo;
     private String  autor;
-    private Blob imagem;
-    private Blob video;
+    private String imagem;
+    private String video;
     private Date dataCriacao;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private CategoriaModel categoriaModel;
     
 }
