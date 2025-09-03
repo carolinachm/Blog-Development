@@ -1,8 +1,10 @@
 package br.com.codigocomcafe.controller;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class PostController {
 
     @Autowired
@@ -31,15 +34,16 @@ public class PostController {
     private CategoriaRepository categoriaRepository;
 
     // ------------------- CRIAR -------------------
-    @PostMapping(value = "/post", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/posts", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<PostModel> cadastraPost(
-            @RequestParam String titulo,
-            @RequestParam String conteudo,
-            @RequestParam String autor,
-            @RequestParam Date dataCriacao,
-            @RequestParam Long categoriaId,
-            @RequestParam("imagem") MultipartFile imagemFile,
-            @RequestParam("video") MultipartFile videoFile) {
+        @RequestParam String titulo,
+        @RequestParam String conteudo,
+        @RequestParam String autor,
+        @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataCriacao,
+        @RequestParam Long categoriaId,
+        @RequestParam("imagem") MultipartFile imagemFile,
+        @RequestParam("video") MultipartFile videoFile) {
+
 
         try {
             // Upload da imagem e do vídeo
@@ -47,7 +51,11 @@ public class PostController {
             String caminhoVideo = uploadService.armazenarArquivo(videoFile);
 
             // Buscar categoria pelo id
-            CategoriaModel categoria = categoriaRepository.findById(categoriaId);
+            Optional<CategoriaModel> categoriaOpt = categoriaRepository.findById(categoriaId);
+            if(!categoriaOpt.isPresent()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+            CategoriaModel categoriaModel = categoriaOpt.get();
 
             // Monta objeto Post
             PostModel postModel = new PostModel();
@@ -57,11 +65,11 @@ public class PostController {
             postModel.setImagem(caminhoImagem);
             postModel.setVideo(caminhoVideo);
             postModel.setDataCriacao(dataCriacao);
-            postModel.setCategoriaModel(categoria);
+            postModel.setCategoriaModel(categoriaModel);
 
-            PostModel salvo = postService.criarPost(postModel);
+            
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
+            return postService.criarPost(postModel);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
@@ -75,15 +83,15 @@ public class PostController {
 
     // ------------------- LISTAR POR ID -------------------
     @GetMapping("/posts/{id}")
-    public ResponseEntity<PostModel> buscarPorId(@PathVariable Long id) {
-        return postService.buscarPorId(id);
+    public ResponseEntity<PostModel> buscarPostPorrId(@PathVariable Long id) {
+        return postService.buscarPostPorID(id);
     }
 
     // ------------------- ATUALIZAR -------------------
     @PutMapping("/posts/{id}")
     public ResponseEntity<PostModel> atualizarPost(@PathVariable Long id, @RequestBody PostModel postModel) {
         postModel.setId(id);
-        return postService.atualizarPost(postModel);
+        return postService.atualizarPost(id, postModel);
     }
 
     // ------------------- EXCLUIR -------------------

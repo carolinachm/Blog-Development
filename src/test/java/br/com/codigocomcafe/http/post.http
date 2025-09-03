@@ -1,0 +1,11 @@
+### Criar post com arquivos e data
+POST http://localhost:8080/api/posts
+Content-Type: multipart/form-data
+
+titulo=Meu primeiro post
+conteudo=Conteúdo do post aqui
+autor=Carol
+categoria=ALIMENTACAO
+dataCriacao=2025-09-03
+arquivo=@src/main/java/br/com/codigocomcafe/uploads/imagem.jpg
+video=@src/main/java/br/com/codigocomcafe/uploads/video.mp4

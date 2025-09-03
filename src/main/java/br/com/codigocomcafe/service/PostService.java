@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import br.com.codigocomcafe.model.PostModel;
 import br.com.codigocomcafe.repository.PostRepository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,39 +16,50 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    // Criar novo post
-    public ResponseEntity<PostModel> criarPost(PostModel post) {
-        PostModel salvo = postRepository.save(post);
-        return new ResponseEntity<>(salvo, HttpStatus.CREATED);
+    // ----------------- CRIAR POST -----------------
+    public ResponseEntity<PostModel> criarPost(PostModel postModel) {
+        return new ResponseEntity<>(postRepository.save(postModel), HttpStatus.CREATED);
     }
 
-    // Listar todos os posts
+    // ----------------- LISTAR TODOS OS POST -----------------
     public ResponseEntity<Iterable<PostModel>> listarPosts() {
-        List<PostModel> posts = postRepository.findAll();
-        return new ResponseEntity<>(posts, HttpStatus.OK);
+        return new ResponseEntity<>(postRepository.findAll(), HttpStatus.OK);
     }
 
-    // Buscar post por ID
-    public ResponseEntity<PostModel> buscarPorId(Long id) {
-        Optional<PostModel> post = postRepository.findById(id);
-        return post.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                   .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
+   
+    // ----------------- BUSCAR POR ID -----------------
+    public ResponseEntity<PostModel> buscarPostPorID(Long id) {
+        Optional<PostModel> postOpt = postRepository.findById(id);
 
-    // Atualizar post
-    public ResponseEntity<PostModel> atualizarPost(PostModel postModel) {
-        if(!postRepository.existsById(postModel.getId())){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (postOpt.isPresent()) {
+            return new ResponseEntity<>(postOpt.get(), HttpStatus.OK);
         }
-        PostModel atualizado = postRepository.save(postModel);
-        return new ResponseEntity<>(atualizado, HttpStatus.OK);
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // Deletar post
+    // ----------------- Atualizar Post -----------------
+    public ResponseEntity<PostModel> atualizarPost(Long id, PostModel postModel) {
+        // Obter o registro contido na tabela
+        Optional<PostModel> postOpt = postRepository.findById(id);
+
+        // Condicional
+        if(postOpt.isPresent()){
+            postModel.setId(id);
+            return new ResponseEntity<>(this.postRepository.save(postModel), HttpStatus.OK);
+        }
+
+        // Caso o código não exista
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    /// ----------------- Deletar Post -----------------
     public ResponseEntity<Void> deletarPost(Long id) {
-        if (postRepository.existsById(id)) {
+        // Verificar a existência do código
+        boolean existeCodigo = this.postRepository.existsById(id);
+        if (existeCodigo) {
             postRepository.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

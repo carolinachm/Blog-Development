@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/categorias
+Content-Type: application/json
+
+{
+ "tipoCategoria": "NOTICIAS",
+  "descricao": "Produtos de alimentação"
+}
+
+###
+GET http://localhost:8080/api/categorias
+Content-Type: application/json

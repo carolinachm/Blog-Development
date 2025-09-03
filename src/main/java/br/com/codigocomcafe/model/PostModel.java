@@ -1,7 +1,7 @@
 package br.com.codigocomcafe.model;
 
-import java.sql.Blob;
-import java.sql.Date;
+
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +30,8 @@ public class PostModel {
     private String  autor;
     private String imagem;
     private String video;
-    private Date dataCriacao;
+    // Agora usando LocalDate
+    private LocalDate dataCriacao;
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private CategoriaModel categoriaModel;

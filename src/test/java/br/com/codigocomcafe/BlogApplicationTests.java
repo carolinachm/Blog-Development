@@ -1,4 +1,4 @@
-package br.com.blog.blog;
+package br.com.codigocomcafe;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
